@@ -121,6 +121,9 @@ node* AvlTree::remove(node* t,int key)
         return t;
     }
 
+    //UPDATE HEIGHT OF THE CURRENT NODE
+    t->heightNode = 1 + max(height(t->left),
+                            height(t->right));
 
     // check whether this node became unbalanced)
     int balance = getBalance(t);
@@ -179,13 +182,29 @@ node* AvlTree::findMax(node* t)
         return findMax(t->left);
 }
 /***************************************************************/
+void AvlTree::findNodeHeight(node* &t, node* &c, int &height)
+{
+    if (t->data == c->data) {
+        return;
+    }
+    if (t->data < c->data) {
+        height++;
+        findNodeHeight(t, c->left,height);
+    } else if (t->data > c->data) {
+        height++;
+        findNodeHeight(t, c->right,height);
+    }
+}
+/***************************************************************/
 void AvlTree::inorder(node* t)
 {
     if (t == NULL)
         return;
 
     inorder(t->left);
-    cout << t->data << "," << root->heightNode - t->heightNode << endl;
+    int height = 0;
+    findNodeHeight(t,root,height);
+    cout << t->data << "," << height << endl;
     inorder(t->right);
 }
 

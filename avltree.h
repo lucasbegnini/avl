@@ -27,6 +27,9 @@ class AvlTree
 
     int getBalance(node* &t);
 
+    void findNodeHeight(node *&t, node* &c, int &height);
+
+
 	void inorder(node* t);
 	void display(node *ptr, int level);
 
