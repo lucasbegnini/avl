@@ -21,9 +21,11 @@ class AvlTree
 	node* rightLeftRotate(node* &t);
 	node* leftRightRotate(node* &t);
 
-	node* remove(int x, node* t);
+    node* remove(node* t, int key);
 	node* findMin(node* t);
 	node* findMax(node* t);
+
+    int getBalance(node* &t);
 
 	void inorder(node* t);
 	void display(node *ptr, int level);

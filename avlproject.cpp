@@ -18,10 +18,10 @@ int main(int argc, char* argv[])
 		else if (operation == "r") {
 			t.remove(value);
 		}
-	}
+    }
 	t.displayInorder();
-	cout << endl;
-	t.display();
+//    cout << endl;
+//    t.display();
 	return 0;
 }
 
